@@ -12,10 +12,10 @@ public class Fraction {
     }
 
     public Fraction(String s) {
-        int index = s.indexOf("/") + 1;
+        int index = s.indexOf("/");
         setNum(Integer.parseInt(s.substring(0, index)));
         setDenom(Integer.parseInt(s.substring(index + 1)));
-        System.out.println("Fraction Created: " + numerator + "/" + denominator);
+        //System.out.println("Fraction Created: " + numerator + "/" + denominator);
     }
 
     public Fraction(Fraction f) {
@@ -63,6 +63,7 @@ public class Fraction {
     public static Fraction mult(Fraction a, Fraction b) {
         int n = a.getNum() * b.getNum();
         int d = a.getDenom() * b.getDenom();
+        result.reduce();
         return new Fraction(n, d);
     }
 
