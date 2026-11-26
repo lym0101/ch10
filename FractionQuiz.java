@@ -138,7 +138,7 @@ public class FractionQuiz {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int correct = 0;
-        int incorrect = 0;
+        double incorrect = 0;
         char[] op = {'+', '-', '*', '/'};
         System.out.println(
             "Let the Fraction Quiz Begin. Answers should be in lowest terms. Good luck!");
@@ -170,10 +170,10 @@ public class FractionQuiz {
                 correct++;
             } else {
                 System.out.println("Wrong. The answer is " + ans);
-                incorrect++;
+                incorrect = incorrect + 1;
             }
         }
-        System.out.println("Correct: " + correct + "  Incorrect: " + incorrect);
+        System.out.println("You answered" + correct + " , for a score of " + (int) Math.round(correct/(incorrect+correct)* 100.0) + " percent");
         in.close();
     }
 }
